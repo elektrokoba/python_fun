@@ -31,34 +31,47 @@ tk.Button(master, text='Show', command=show_entry_fields).grid(row=3, column=1, 
 
 tk.mainloop()
 
-class MyItems:
-    def __init__(self, entry, color, size, isdone):
-        self.entry = entry
-        self.textColor = color
-        self.textSize = size
-        self.entryIsDone = bool(isdone)
+class MyItem:
+    def __init__(self, entry, color, size):
+        self.__entry = entry
+        self.__textColor = color
+        self.__textSize = size
+        self.__entryIsDone = False
+
+    def getEntry(self):
+        return self.__entry
 
     def getColor(self):
-        return self.textColor
+        return self.__textColor
     
     def getSize(self):
-        return self.getSize
+        return self.__textSize
 
-    def viewEntry(self):
-        print(self.entry)
+    def isDone(self):
+        return self.__entryIsDone
 
-    def toggleDone(self, entry):
-        self.entryIsDone = True
+    # def viewEntry(self):
+    #     print(self.__entry)
 
-item1 = MyItems("tej", "black", 12, False)
-item2 = MyItems("vaj", "green", 10, True)
-item3 = MyItems("víz", "green", 10, True)
+    def toggleDone(self):
+        self.__entryIsDone = not self.__entryIsDone
+
+item1 = MyItem("tej", "black", 12)
+item2 = MyItem("vaj", "green", 10)
+item3 = MyItem("víz", "green", 10)
 
 
-print("item1.entryIsDone ",item1.entryIsDone)
+item3.getEntry()
+item2.getColor()
+item1.getSize()
+item1.isDone()
+item1.toggleDone()
 
-item1.toggleDone(item1)
 
-print("item1.getColor() ", item1.getColor())
-print("item2.viewEntry() ", item2.viewEntry())
-print("item1.entryIsDone ", item1.entryIsDone)
+print("item1.entryIsDone ",item1.isDone())
+
+item1.toggleDone()
+
+# print("item1.getColor() ", item1.getColor())
+# print("item2.viewEntry() ", item2.viewEntry())
+# print("item1.entryIsDone ", item1.entryIsDone)

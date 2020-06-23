@@ -1,0 +1,3 @@
+players = 
+scores = []
+k
