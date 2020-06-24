@@ -1,16 +1,23 @@
 # make factorial calculator 
 
-def factorial(n):
+def factorial(inputNumber):
 
-    if n == 1:
-        return 1
+    if isinstance(inputNumber, int):
 
-    elif n == 0:
-        return 1
+        if inputNumber == 0:
+            return 1
+        
+        elif inputNumber < 0:
+            return None
 
+        else:
+            for i in reversed(range(1, inputNumber)):
+                inputNumber = i * inputNumber
+                print(inputNumber)
+            return inputNumber
+    
     else:
-        for i in range(1, n):
-            n = i * n
-        return print(i + 1 , "factorial is: ", n)
+        return None
 
-factorial(2)
+       
+print(factorial(-3))
